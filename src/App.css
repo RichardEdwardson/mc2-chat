@@ -2,3 +2,12 @@
     width: 100%;
     height: 100%;
 }
+
+#mf-display {
+    width: 100%;
+    height: 100%;
+}
+
+#mf-display::part(virtual-keyboard-toggle) {
+    display: none;
+}
