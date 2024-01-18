@@ -9,7 +9,7 @@ const MathField = forwardRef(function MathField({ id, onSubmit }, ref) {
 
     const handleMount = () => dispatch(mfActions.setIsMounted())
     useEffect(() => {
-        return () => document.getElementById(id).addEventListener('mount', handleMount)
+        document.getElementById(id).addEventListener('mount', handleMount)
     }, [])
 
     useEffect(() => {
