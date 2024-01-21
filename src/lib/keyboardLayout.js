@@ -1,8 +1,9 @@
 
 
 const layout = [
+  "alphabetic",
     {
-      label: "alphabetic",
+      label: "<p>Hi</p>",
       tooltip: "Only the essential",
       layers: [
         {
@@ -20,7 +21,6 @@ const layout = [
         },
       ],
     },
-    "alphabetic",
   ];
 
   export default layout
