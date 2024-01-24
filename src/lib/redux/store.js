@@ -1,10 +1,10 @@
 import mfReducer from './mathfieldSlice'
 import { configureStore } from '@reduxjs/toolkit'
-import messageReducer from './messageSlice'
+import chatReducer from './chatSlice'
 
 export default configureStore({
   reducer: {
     mf: mfReducer,
-    chat: messageReducer
+    chat: chatReducer,
   },
 })

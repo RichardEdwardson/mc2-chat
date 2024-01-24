@@ -75,6 +75,7 @@ const withEvents = MF => forwardRef(function EnhancedMF(props, ref) {
         mf.addEventListener('undo-state-change', onUndoStateChange)
         mf.addEventListener('input', onInput)
         mf.addEventListener('beforeinput', handleBeforeInput)
+        mf.defaultMode='text'
     }, [])
 
     return (
@@ -89,27 +90,11 @@ export function MathField({ value, id, ...props }) {
     return (
         <MF value={value}
             id={id}
+            onFocus={e => {
+                e.target.executeCommand(['switchMode', 'text'])
+            }}
             {...props} />
     )
 }
 
-export function VirtualKeyboard() {
-    const ref = useRef()
-    const [keyboardRect, setKeyboardRect] = useState({height: 0})
-    useEffect(() => {
-        const keyboard = window.mathVirtualKeyboard
-        keyboard.addEventListener('geometrychange', () => {
-            setKeyboardRect(keyboard.boundingRect)
-        })
-        keyboard.container = ref.current
-    }, [])
-    useEffect(() => {
-        console.log(keyboardRect.height)
-    }, [keyboardRect])
-    return (
-        <div ref={ref} className={ `flex-1 border-2 h-[${keyboardRect.height}px]`}>
-
-        </div>
-    )
-}
 
