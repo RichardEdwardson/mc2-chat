@@ -18,10 +18,10 @@ import {
     getDoc,
     doc,
 } from "firebase/firestore";
-import { db } from "../lib/firebase";
-import { setRoom, setUser } from '../lib/redux/chatSlice';
+// import { db } from "../lib/firebase";
+import { setRoom, setUser } from '../../lib/redux/chatSlice';
 import { useDispatch } from 'react-redux';
-
+import { db } from '../../lib/firebase';
 export default function Home() {
     const [showCreateRoom, setShowCreateRoom] = useState(false)
     const [showJoinRoom, setShowJoinRoom] = useState(false)

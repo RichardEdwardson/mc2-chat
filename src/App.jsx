@@ -1,26 +1,16 @@
-import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react'
 import './App.css'
-// import { auth } from './lib/firebase'
-// import { useAuthState } from "react-firebase-hooks/auth"
-// import Signin from './components/Signin'
-import Home from './components/home'
+import Home from './pages/Home'
 import { useSelector } from 'react-redux'
-import ChatRoom from './components/Chat'
+import ChatRoom from './pages/ChatRoom'
 
 export default function App() {
-  const user = useSelector(({ chat }) => chat.currentUser)
-  // useEffect(() => {
-
-  //   console.log(user)
-
-  // }, [user])
-
+  const isLoggedIn = useSelector(({chat}) => chat.isLoggedIn)
   return (
     <div className='w-full h-full flex flex-col'>
-      {/* {!user ? <Signin /> : <Home />} */}
-      
-      {!user ? <Home />: <ChatRoom/>}
-
+      {!isLoggedIn
+        ? <Home />
+        : <ChatRoom />
+      }
     </div>
   )
 }

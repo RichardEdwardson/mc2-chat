@@ -3,16 +3,17 @@ import { createSlice } from "@reduxjs/toolkit";
 export const chatSlice = createSlice({
     name: 'chat',
     initialState: {
-        currentUser: null,
-        currentRoom: null,
+        isLoggedIn: true,
+        username: 'Rick',
+        roomid: 'test',
     },
     reducers: {
         setUser(state, action) {
-            state.currentUser = action.payload
+            state.username = action.payload
         },
 
         setRoom(state, action) {
-            state.currentRoom = action.payload
+            state.roomid = action.payload
         }
     }
 })
